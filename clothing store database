@@ -1,0 +1,35 @@
+--create a clothing store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price INTEGER, quantity INTEGER);
+
+INSERT INTO store VALUES (1, "shirts", "apparel", 34, 15);
+INSERT INTO store VALUES (2, "shoes", "apparel", 90, 28);
+INSERT INTO store VALUES (3, "pants", "apparel", 60, 32);
+INSERT INTO store VALUES (4, "shorts", "apparel", 50, 27);
+INSERT INTO store VALUES (5, "hats", "accessory", 15, 47);
+INSERT INTO store VALUES (6, "necklace", "accessory", 10, 79);
+INSERT INTO store VALUES (7, "sun_glasses", "accessory", 5, 13);
+INSERT INTO store VALUES (8, "socks", "apparel", 20, 67);
+INSERT INTO store VALUES (9, "braclet", "accessory", 9, 45);
+INSERT INTO store VALUES (10, "tank_tops", "apparel", 32, 38);
+INSERT INTO store VALUES (11, "rings", "accessory", 7, 12);
+INSERT INTO store VALUES (12, "crop_tops", "apparel", 33, 56);
+INSERT INTO store VALUES (13, "sandles", "apparel", 75, 49);
+INSERT INTO store VALUES (14, "swim", "apparel", 40, 10);
+INSERT INTO store VALUES (15, "headbands", "accessory", 13, 76);
+
+--display the database ordered by price.
+SELECT *
+FROM store
+ORDER BY price desc;
+
+--what is the average price of items in the accessory section?
+SELECT avg(price) "average accessory price"
+FROM store
+WHERE section='accessory';
+
+--what are the 5 most stocked items?
+SELECT item, quantity
+FROM store
+ORDER BY quantity desc
+LIMIT 5;
